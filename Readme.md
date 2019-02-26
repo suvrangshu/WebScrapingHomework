@@ -17,7 +17,7 @@ The homework consists of the following sections:
 Screen capture showing Mongodb created the following:
 Database = **mars_db**
 
-![mars_db](Images/Mongo1.png)
+![mongo](images/Mongo1.png) 
 
 Under database mars_db collection mars_list is created 
 ![Collections - mars_list](images/mongo2.png)
