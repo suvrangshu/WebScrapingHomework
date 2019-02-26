@@ -1,3 +1,6 @@
+#Author: Suvrangshu Ghosh
+#Date Feb 24th 2019
+
 from splinter import Browser
 from bs4 import BeautifulSoup
 import time
@@ -13,6 +16,8 @@ import sys
 executable_path = {"executable_path": "drivers/chromedriver"}
 browser = Browser('chrome', **executable_path, headless=False)
 
+#This code scrapes the following websites:
+#----------------------------------------
 #url = 'https://mars.nasa.gov/news/'
 #pic_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
 #t_url = 'https://twitter.com/marswxreport?lang=en'
@@ -24,7 +29,7 @@ def scrape():
     # url = https://mars.nasa.gov/news/' 
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
-    time.sleep(4)
+    time.sleep(4)#Waiting to give time for loading
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
     
@@ -46,7 +51,7 @@ def scrape():
     #putting 1 sec sleep, to load page
     time.sleep(2)
     
-    browser.click_link_by_partial_text('more info')
+    browser.click_link_by_partial_text('more info') #Click more info
     time.sleep(2)
     soup = BeautifulSoup(browser.html, "html.parser")
     #get image
@@ -57,7 +62,7 @@ def scrape():
     #creating full path for the image url:
     featured_image_url = 'https://www.jpl.nasa.gov' + featured_image
     
-    #Twitter
+    #Twitter page:
     twit_url = 'https://twitter.com/marswxreport?lang=en'
     browser.visit(twit_url)
     time.sleep(2)
@@ -70,7 +75,7 @@ def scrape():
     #picking only the part required
     mars_weather = x[0]
     
-    #Fact Url :
+    #Fact Url Page :
     fact_url = 'http://space-facts.com/mars/'
     time.sleep(1)
     #pandas html to table
@@ -84,7 +89,7 @@ def scrape():
     #clean up new lines
     fact_table = fact_table.replace('\n', '')
     
-    #Mars Hemispheres
+    #Mars Hemispheres Page:
 
     hem_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     #Mars Hemispheres
@@ -97,6 +102,7 @@ def scrape():
     h_soup = BeautifulSoup(browser.html, 'lxml')
     
     hemis_check = h_soup.find_all(class_='description')
+    #reading in loop
     for results in hemis_check:
         h1 = results.h3.text
         #href_image = h1['href']
