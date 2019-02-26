@@ -54,4 +54,4 @@ This is a single page, kindly **scroll** down to see more details:
 
 ![MainPage](images/MainWeb.png)
 
-![webpage2](images/web2.png)
+![Page2](images/web2.png)
