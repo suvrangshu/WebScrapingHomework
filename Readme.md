@@ -52,6 +52,6 @@ Please be informed that the website(https://twitter.com/marswxreport?lang=en) is
 To start scraping, please press the button called “Press to Scrape for Mars”
 This is a single page, kindly **scroll** down to see more details:
 
-![Web page1](images/web1.png)
+![MainPage](images/MainWeb.png)
 
 ![webpage2](images/web2.png)
